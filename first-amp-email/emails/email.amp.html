@@ -1,8 +1,17 @@
+<!--
+     Below is the mininum valid AMP4EMAIL document. Just type away
+     here and the AMP Validator will re-check your document on the fly.
+-->
 <!DOCTYPE html>
-<html ⚡4email>
+<html ⚡4email data-css-strict>
   <head>
     <meta charset="utf-8" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script
+      async
+      custom-element="amp-bind"
+      src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+    ></script>
     <script
       async
       custom-element="amp-carousel"
@@ -13,8 +22,45 @@
         visibility: hidden;
       }
     </style>
+    <style amp-custom>
+      .show {
+        display: inline;
+      }
+      .hide {
+        display: none;
+      }
+      button {
+        cursor: pointer;
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+    </style>
   </head>
   <body>
+    <h2>Hello, Leandro</h2>
+
+    <div>
+      I already have invented two things and the patents are in the works.
+      <span [class]="visible ? 'show' : 'hide'" class="hide">
+        However, I could invent something utterly mind-blowing and be rocketed
+        off to a life of adventure. I could actually make one of the many
+        devices in my portfolio real. Although, I would first have to clean up
+        my desk and junk pile. I know I have useful stuff in there. I just have
+        to find it.
+      </span>
+    </div>
+
+    <button
+      [text]="visible ? 'Show Less' : 'Show More'"
+      on="tap:AMP.setState({visible: !visible})"
+    >
+      Show More
+    </button>
+
     <h1>Email jokes!</h1>
     <p>
       I was going to send a joke about spam emails, but you probably wouldn't
